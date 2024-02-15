@@ -3,6 +3,7 @@
 
 ###Connecting gas sensor to Raspberry Pi
 import RPI.GPIO as GPIO
+import time
 
 #Setting up GPIO
 GPIO.setmode(GPIO.BCM)
