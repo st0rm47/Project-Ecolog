@@ -42,3 +42,34 @@ with open(save_path, "rb") as data:
     
 camera.release()
 cv2.destroyAllWindows()
+
+# Specify the Custom Vision API endpoint
+prediction_endpoint = "https://centralindia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/cc643bba-fedc-4779-a94e-78f61613c4d9/classify/iterations/Forest_Fire_Confirmatory/image"
+
+# Specify the Custom Vision prediction key
+prediction_key = '6ad80ba7215e48e5988a3d2742d5a7d6'
+
+# Get the list of blobs in the container
+blob_list = container_client.list_blobs()
+
+# Sorting blobs by creation time
+latest_blob = max(blob_list, key=lambda b: b.creation_time)
+
+# Construct the blob URL
+blob_url = f"https://{blob_service_client.account_name}.blob.core.windows.net/{container_name}/{latest_blob.name}"
+
+# Send the latest image data directly to the Custom Vision API for classification
+headers = {
+    'Prediction-Key': prediction_key,
+    'Content-Type': 'application/octet-stream'
+}
+blob_client = container_client.get_blob_client(latest_blob.name)
+response = requests.post(prediction_endpoint, headers=headers, data=blob_client.download_blob().readall())
+
+# Process the prediction response
+if response.status_code == 200:
+    predictions = response.json()['predictions']
+    for prediction in predictions:
+        print(f"Prediction: {prediction['tagName']}, Probability: {prediction['probability']:.2f}")
+else:
+    print("Prediction failed")
