@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    direction: ltr;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+  }
+  
+  .nova-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999999999;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nova-modal .nova-alert {
+    position: relative;
+    width: 70%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-radius: 3px;
+    text-align: center;
+    animation: 0.6s 1 novaAnimate;
+    -webkit-animation: 0.6s 1 novaAnimate;
+  }
+  
+  @media (min-width: 768px) {
+    .nova-modal .nova-alert {
+      width: 350px;
+    }
+  }
+  
+  @keyframes novaAnimate {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    to {
+      transform: none;
+    }
+  }
+  
+  .nova-modal .nova-alert div.nova-icon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nova-modal .nova-alert div.nova-icon div {
+    transform: scale(1.2);
+  }
+  
+  .nova-modal .nova-alert .nova-title {
+    color: black;
+    font-size: large;
+  }
+  
+  .nova-modal .nova-alert .nova-text {
+    color: #888888;
+    font-size: 15px;
+    margin: 10px 0px;
+  }
+  
+  .nova-modal .nova-alert .nova-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .nova-modal .nova-alert .nova-btns a {
+    text-decoration: none;
+    padding: 7px 10px;
+    flex: 100%;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .nova-modal .nova-alert .nova-btns a.accept {
+    background: #17293a;
+    color: #ffffff;
+  }
+  
+  .nova-modal .nova-alert .nova-btns a.reject {
+    background: #ff0000;
+    color: #ffffff;
+  }
+  
+  .nova-modal .nova-alert .dismissButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    font-size: large;
+    border: 1px solid rgba(126, 126, 126, 0.5);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: rgba(126, 126, 126, 0.5) !important;
+  }
+  
+  .nova-modal .nova-alert .dismissButton.hidden {
+    display: none;
+  }
+  
+  .nova-modal .nova-alert input.nova-input-alert {
+    width: 100%;
+    padding: 5px 5px;
+    margin: 10px 0px;
+    border-radius: 3px;
+    border: 1px solid rgba(126, 126, 126, 0.5);
+    background-color: transparent;
+  }
+  
+  .nova-dark-mode {
+    background-color: #2b2b2b !important;
+  }
+  
+  .nova-dark-mode * {
+    color: white !important;
+  }
+  
+  /*    animation svg icon    */
+  .svg-box {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+  }
+  
+  .green-stroke {
+    stroke: #7CB342;
+  }
+  
+  .red-stroke {
+    stroke: #FF6245;
+  }
+  
+  .yellow-stroke {
+    stroke: #FFC107;
+  }
+  
+  .circular circle.path {
+    stroke-dasharray: 330;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    opacity: 0.4;
+    animation: 0.7s draw-circle ease-out;
+  }
+  
+  /*------- Checkmark ---------*/
+  .checkmark {
+    stroke-width: 6.25;
+    stroke-linecap: round;
+    position: absolute;
+    top: 56px;
+    left: 49px;
+    width: 52px;
+    height: 40px;
+  }
+  
+  .checkmark path {
+    animation: 1s draw-check ease-out;
+  }
+  
+  @keyframes draw-circle {
+    0% {
+      stroke-dasharray: 0,330;
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    80% {
+      stroke-dasharray: 330,330;
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+  
+  @keyframes draw-check {
+    0% {
+      stroke-dasharray: 49,80;
+      stroke-dashoffset: 48;
+      opacity: 0;
+    }
+    50% {
+      stroke-dasharray: 49,80;
+      stroke-dashoffset: 48;
+      opacity: 1;
+    }
+    100% {
+      stroke-dasharray: 130,80;
+      stroke-dashoffset: 48;
+    }
+  }
+  
+  /*---------- Cross ----------*/
+  .cross {
+    stroke-width: 6.25;
+    stroke-linecap: round;
+    position: absolute;
+    top: 54px;
+    left: 54px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .cross .first-line {
+    animation: 0.7s draw-first-line ease-out;
+  }
+  
+  .cross .second-line {
+    animation: 0.7s draw-second-line ease-out;
+  }
+  
+  @keyframes draw-first-line {
+    0% {
+      stroke-dasharray: 0,56;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 0,56;
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dasharray: 56,330;
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes draw-second-line {
+    0% {
+      stroke-dasharray: 0,55;
+      stroke-dashoffset: 1;
+    }
+    50% {
+      stroke-dasharray: 0,55;
+      stroke-dashoffset: 1;
+    }
+    100% {
+      stroke-dasharray: 55,0;
+      stroke-dashoffset: 70;
+    }
+  }
+  
+  .alert-sign {
+    stroke-width: 6.25;
+    stroke-linecap: round;
+    position: absolute;
+    top: 40px;
+    left: 68px;
+    width: 15px;
+    height: 70px;
+    animation: 0.5s alert-sign-bounce cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .alert-sign .dot {
+    stroke: none;
+    fill: #FFC107;
+  }
+  
+  @keyframes alert-sign-bounce {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
