@@ -3,7 +3,7 @@ import numpy as np
 import datetime
 from azure.storage.blob import BlobServiceClient
 import requests
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 #Connection String and Container Name with the help of BlobServiceClient
