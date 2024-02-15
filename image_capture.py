@@ -28,6 +28,15 @@ def camera():
     save_image = ((image[0] + 1) * 127.5).astype(np.uint8)
     save_path = "Forest_Fire_Detected.jpg"
     cv2.imwrite(save_path, save_image) 
+    camera.release()
+    cv2.destroyAllWindows()
+    
+    #Send the data to Azure Storage and 
+    blob_name = f"Forest_Fire_Detected.jpg {datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}"
+    with open(save_path, "rb") as data:
+        blob_client = container_client.get_blob_client(blob_name)
+        blob_client.upload_blob(data)
+        print("Image uploaded to the Azure Storage")
     
     #Custom Vision API
     prediction_endpoint = "https://centralindia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/cc643bba-fedc-4779-a94e-78f61613c4d9/classify/iterations/Forest_Fire_Confirmatory/image"
@@ -42,6 +51,16 @@ def camera():
     blob_client = container_client.get_blob_client(latest_blob.name)
     response = requests.post(prediction_endpoint, headers=headers, data=blob_client.download_blob().readall())
     if response.status_code == 200:
+        predictions = response.json()['predictions']
+        for prediction in predictions:
+            if prediction ['probability'] >0.95:
+                print("Forest Fire Detected")
+                GPIO.output(buzzer, GPIO.HIGH)
+                time.sleep(1)
+                GPIO.output(buzzer, GPIO.LOW)
+                break
+    else:
+        print("Error: ", response.status_code)
         
 
     
