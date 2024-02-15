@@ -61,6 +61,7 @@ def camera():
                 break
     else:
         print("Error: ", response.status_code)
-        
+       
+ 
 
     
