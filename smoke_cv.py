@@ -26,7 +26,7 @@ GPIO.setup(DOUT_PIN, GPIO.IN)
 
 
 #Setting up buzzer pin
-BUZZER_PIN = 21
+BUZZER_PIN = 23
 GPIO.setup(BUZZER_PIN, GPIO.OUT)
 
 def camera():
