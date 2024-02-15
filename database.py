@@ -11,7 +11,7 @@ blob_service_client = BlobServiceClient.from_connection_string(connection_str)
 container_name = "images"
 
 # Upload a file to the azure storage
-local_file_path = "D:\\Subodh\\Github\\Project-Ecolog\\firoj.jpg"
+local_file_path = "test.jpg"
 blob_client = blob_service_client.get_blob_client(container=container_name, blob=" 1.jpg")
 with open(local_file_path, "rb") as data:
     blob_client.upload_blob(data)
