@@ -20,10 +20,10 @@ camera = cv2.VideoCapture(0)
 ret, image = camera.read()
 
 #Resizing the image to send into database
-image = cv2.resize(image, (500, 500), interpolation=cv2.INTER_AREA)
+image = cv2.resize(image, (300, 300), interpolation=cv2.INTER_AREA)
 
 #Make the image a numpy array and reshape it to the model's input shape.
-image = np.asarray(image, dtype=np.float32).reshape(1, 500, 500, 3)
+image = np.asarray(image, dtype=np.float32).reshape(1, 300, 300, 3)
 
 #Normalize the image array
 image = (image / 127.5) - 1
