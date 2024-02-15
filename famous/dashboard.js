@@ -4,6 +4,10 @@ let nav = document.querySelector(".navcontainer");
 menuicn.addEventListener("click", () => { 
 	nav.classList.toggle("navclose"); 
 })
+function toggleSubMenu() {
+    const subnav = document.querySelector('.subnav');
+    subnav.classList.toggle('active');
+}
 document.addEventListener("DOMContentLoaded", function() {
     // Add event listener to the logout button
     const logoutButton = document.querySelector(".logout");

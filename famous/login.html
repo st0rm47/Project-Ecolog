@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Styles for the login form */
+        .login-form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-form input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login</h2>
+        <form id="loginForm" method="post">
+            <div>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <div class="error-message" id="usernameError"></div>
+            </div>
+            <div>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+
+    <script>
+      
+        function validateForm() {
+            let isValid = true;
+            const usernameInput = document.getElementById("username");
+            const passwordInput = document.getElementById("password");
+            const usernameError = document.getElementById("usernameError");
+            const passwordError = document.getElementById("passwordError");
+
+            if (usernameInput.validity.valueMissing) {
+                usernameError.textContent = "Username is required";
+                isValid = false;
+            } else {
+                usernameError.textContent = "";
+            }
+
+            if (passwordInput.validity.valueMissing) {
+                passwordError.textContent = "Password is required";
+                isValid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            return isValid;
+            
+        }
+
+      
+        function login() {
+            if (validateForm()) {
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                
+              
+                if (username === "admin" && password === "admin") {
+                    
+                    window.location.href = "front.html";
+                } else {
+                  
+                    alert("Invalid credentials. Please try again.");
+                }
+            }
+        }
+        <!-- Inside your front.html -->
+
+    
+    function displayLoggedInUser() {
+        var userInfo = document.getElementById("userInfo");
+        var loggedInUser = sessionStorage.getItem('loggedInUser');
+
+        if (loggedInUser) {
+            userInfo.innerHTML = "Logged in as: " + loggedInUser;
+            userInfo.innerHTML += "<button class='sign-out' onclick='signOut()'>Sign Out</button>";
+        } else {
+            userInfo.innerHTML = "Not logged in";
+        }
+    }
+
+   
+    function signOut() {
+        sessionStorage.removeItem('loggedInUser');
+        displayLoggedInUser(); 
+    }
+
+   
+    displayLoggedInUser();
+
+   
+    var urlParams = new URLSearchParams(window.location.search);
+    var fromLoginPage = urlParams.get('fromLogin');
+
+    if (fromLoginPage) {
+        
+        displayLoggedInUser();
+    }
+</script>
+
+  
+</body>
+</html>
