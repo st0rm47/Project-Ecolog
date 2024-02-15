@@ -9,6 +9,14 @@ padding: 0;
 box-sizing: border-box; 
 font-family: "Poppins", sans-serif; 
 } 
+
+.user-icon img {
+    width: 40px; /* Set the width of the image */
+    height: 40px; /* Set the height of the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fills the circular space */
+}
+
 :root { 
 --background-color1: #fafaff; 
 --background-color2: #ffffff; 
@@ -169,8 +177,8 @@ border-left: 5px solid #010058af;
 background-color: var(--Border-color); 
 } 
 .box { 
-height: 130px; 
-width: 230px; 
+height: 250px;/*  130px */
+width: 320px; 
 border-radius: 20px; 
 box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751); 
 padding: 20px; 
@@ -186,15 +194,27 @@ transform: scale(1.08);
 
 .box:nth-child(1) { 
 background-color: var(--one-use-color); 
+justify-content: center;
 } 
 .box:nth-child(2) { 
 background-color: var(--two-use-color); 
+justify-content: center;
 } 
 .box:nth-child(3) { 
 background-color: var(--one-use-color); 
+justify-content: center;
 } 
 .box:nth-child(4) { 
 background-color: var(--two-use-color); 
+justify-content: center;
+} 
+.box:nth-child(5) { 
+background-color: var(--one-use-color); 
+justify-content: center;
+} 
+.box:nth-child(6) { 
+background-color: var(--two-use-color);
+justify-content: center; 
 } 
 
 .box img { 
@@ -252,4 +272,5 @@ letter-spacing: 3px;
 	color: #fff;
 	
 }
+
 

@@ -64,6 +64,7 @@ def camera():
                 GPIO.output(buzzer, GPIO.LOW)
     else:
         print("Error: ", response.status_code)
+<<<<<<< HEAD
     
     #Send image to our website
     website_url = 'https://example.com/upload_image_endpoint'
@@ -75,5 +76,9 @@ def camera():
     else:
         print("Failed to send image to website")
     
+=======
+       
+ 
+>>>>>>> 757f7c93af82e43d7936d62ea8321a7e667f42b3
 
     
