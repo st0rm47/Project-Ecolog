@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mama.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- <link rel="stylesheet" href="first_day.css"> -->
+    <!-- <script src="/famous/dashboard.js"></script> -->
+</head>
+<body>
+	<!-- for header part -->
+	<header> 
+        <div class="logosec"> 
+            <div class="logo">Ecolog</div> 
+            <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" -->
+                <!-- class="nav-img"
+                alt="title"> -->
+        </div> 
+        <div class="user-icon">
+            <img src="\famous\firojbmw.jpeg" alt="User Icon">
+        </div>
+	</header> 
+
+	<div class="main-container"> 
+		<div class="navcontainer"> 
+			<nav class="nav"> 
+				<div class="nav-upper-options"> 
+					<div class="nav-option option1"> 
+						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+							class="nav-img"
+							alt="dashboard"> 
+						<h3> Dashboard</h3> 
+					</div> 
+
+					<div class="nav-option option2">
+						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img" alt="articles">
+						<h3> Devices</h3>
+						<div class="submenu">
+							<div class="submenu-option">Ecolog 1</div>
+							<div class="submenu-option">Ecolog 2</div>
+                            <div class="submenu-option">Ecolog 3</div>
+							<div class="submenu-option">Ecolog 4</div>
+                            <div class="submenu-option">Ecolog 5</div>
+							<div class="submenu-option">Ecolog 6</div>
+
+						</div>
+					</div>
+					
+
+					<div class="nav-option option3"> 
+						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+							class="nav-img"
+							alt="report"> 
+						<h3> Report</h3> 
+					</div> 
+
+					
+					<div class="nav-option option6"> 
+						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+							class="nav-img"
+							alt="settings"> 
+						<h3> Settings</h3> 
+					</div> 
+                    <div class="nav-option option6"> 
+						<!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+							class="nav-img"
+							alt="settings">  -->
+						<h3> </h3> 
+					</div> 
+
+                    <div class="nav-option option6"> 
+						<!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+							class="nav-img"
+							alt="settings">  -->
+						<h3> </h3> 
+					</div> 
+
+
+					<div class="nav-option logout"> 
+						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+							class="nav-img"
+							alt="logout"> 
+						<h3>Logout</h3> 
+					</div> 
+
+				</div> 
+			</nav> 
+		</div> 
+<style>
+    .box {
+        background-size: cover;
+        opacity: 0.7;
+    }
+</style>
+<div class="main"> 
+    <h2 style="text-align: center;">Live Feed: Ecolog-1</h2><br><br>
+    <div class="box-container">     
+    <div class="center-align box" id="deviceDetails">
+        <section>
+            <p id="status">Status: Loading...</p>
+        </section>
+
+        <section>
+            <p id="time">Time: Loading...</p>
+        </section>
+
+        <section>
+            <p id="date">Date: Loading...</p>
+        </section>
+
+        <section>
+            <p id="location">Location: Loading...</p>
+        </section>
+    </div>
+
+    <section class="center-align">
+        <div id="map"></div>
+    </section>
+    <script>
+        // Set device status
+        document.getElementById('status').textContent = 'Status: Active';
+
+        // Set current date and time
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('time').textContent = 'Time: ' + now.toLocaleTimeString();
+            document.getElementById('date').textContent = 'Date: ' + now.toLocaleDateString();
+        }, 1000);
+
+        // Set location and map
+        navigator.geolocation.getCurrentPosition((position) => {
+            document.getElementById('location').textContent = 'Location: ' + position.coords.latitude + ', ' + position.coords.longitude;
+            var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+
+            // Fetch forest data
+            fetch(`https://data-api.globalforestwatch.org/forest?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('forestStatus').textContent = 'Latitude: ' + position.coords.latitude + ', Longitude: ' + position.coords.longitude + '\n' + JSON.stringify(data, null, 2);
+                });
+        });
+    </script>
+    </div> <br><br>
+    <div id="overlay">
+        <section id="forestData">
+            <h2>Recent Forest Data</h2>
+            <p id="forestStatus">Loading...</p>
+        </section>
+    </div>
+</div>
+</body> 
+</html>
