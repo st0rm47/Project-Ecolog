@@ -16,7 +16,7 @@ GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(DOUT_PIN, GPIO.IN)
 
 def run(model: str, max_results: int, score_threshold: float,
-        overlapping_factor: float) -> None
+        overlapping_factor: float) -> None:
 
     if (overlapping_factor < 0) or (overlapping_factor >= 1.0):
         raise ValueError('Overlapping factor must be between 0.0 and 0.9')
@@ -90,5 +90,30 @@ def run(model: str, max_results: int, score_threshold: float,
             print("No Smoke Detected")       
         time.sleep(1)  
         
-if __name__ == main():
-    
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument(
+        '--model',
+        help='Name of the audio classification model.',
+        required=False,
+        default='yamnet.tflite')
+    parser.add_argument(
+        '--maxResults',
+        help='Maximum number of results to show.',
+        required=False,
+        default=5)
+    parser.add_argument(
+        '--overlappingFactor',
+        help='Target overlapping between adjacent inferences. Value must be in (0, 1)',
+        required=False,
+        default=0.5)
+    parser.add_argument(
+        '--scoreThreshold',
+        help='The score threshold of classification results.',
+        required=False,
+        default=0.0)
+    args = parser.parse_args()
+
+    run(args.model, int(args.maxResults), float(args.scoreThreshold),
+        float(args.overlappingFactor))
