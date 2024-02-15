@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/famous/dashboard.css">
+    <!-- <script src="/famous/dashboard.js"></script> -->
+</head>
+<body>
+    <!-- for header part -->
+    <header> 
+        <div class="logosec"> 
+            <div class="logo">Ecolog</div> 
+        </div> 
+        <div class="user-icon">
+            <img src="\famous\firojbmw.jpeg" alt="User Icon">
+        </div>
+    </header> 
+
+    <div class="main-container"> 
+        <div class="navcontainer"> 
+            <nav class="nav"> 
+                <div class="nav-upper-options"> 
+                    <div class="nav-option option1"> 
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                            class="nav-img"
+                            alt="dashboard"> 
+                        <h3> Dashboard</h3> 
+                    </div> 
+
+                    <div class="nav-option option2">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img" alt="articles">
+                        <h3> Devices</h3>
+                        <div class="submenu">
+                            <div class="submenu-option" onclick="redirectToAnotherPage()">Ecolog 1</div>
+                            <div class="submenu-option" onclick="redirectToAnotherPage()">Ecolog 2</div>
+                            <div class="submenu-option" onclick="redirectToAnotherPage()">Ecolog 3</div>
+                            <div class="submenu-option" onclick="redirectToAnotherPage()">Ecolog 4</div>
+                            <div class="submenu-option" onclick="redirectToAnotherPage()">Ecolog 5</div>
+                            <div class="submenu-option" onclick="redirectToAnotherPage()">Ecolog 6</div>
+                        </div>
+                    </div>
+
+                    <div class="nav-option option3"> 
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+                            class="nav-img"
+                            alt="report"> 
+                        <h3> Report</h3> 
+                    </div> 
+
+                    <div class="nav-option option6"> 
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                            class="nav-img"
+                            alt="settings"> 
+                        <h3> Settings</h3> 
+                    </div> 
+                    <div class="nav-option option6"> 
+                        <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                            class="nav-img"
+                            alt="settings">  -->
+                        <h3> </h3> 
+                    </div> 
+
+                    <div class="nav-option option6"> 
+                        <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                            class="nav-img"
+                            alt="settings">  -->
+                        <h3> </h3> 
+                    </div> 
+
+
+                    <div class="nav-option logout" onclick = "logout()"> 
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                            class="nav-img"
+                            alt="logout"> 
+                        <h3>Logout</h3> 
+                    </div> 
+
+                </div> 
+            </nav> 
+        </div> 
+        <style>
+            .box {
+                background-size: cover;
+                opacity: 0.7;
+            }
+        </style>
+
+        <div class="main"> 
+            <div class="box-container"> 
+                <div class="box box1" onclick="redirectToAnotherPage()" id="ecolog1">
+                    <div class="text"> 
+                        <h2 class="topic-heading"></h2> 
+                        <h2 class="topic"></h2> 
+                    </div> 
+                    <img src="pi4.png" alt="Dummy Image 1">
+                     &emsp;
+
+                    <h3 style="text-align: center; color: #fff">Ecolog-1</h3>
+                </div> 
+
+                <div class="box box2"> 
+                    <div class="text"> 
+                        <h2 class="topic-heading"></h2> 
+                        <h2 class="topic"></h2> 
+                    </div> 
+                    <img src="./pi4.png" alt="Dummy Image 2">
+                    &emsp;
+                    <h3 style="text-align: center; color: #fff">Ecolog-2</h3>
+                </div> 
+
+                <div class="box box3"> 
+                    <div class="text"> 
+                        <h2 class="topic-heading"></h2> 
+                        <h2 class="topic"></h2> 
+                    </div> 
+                    <img src="./pi4.png" alt="Dummy Image 3">
+                    &emsp;
+                    <h3 style="text-align: center; color: #fff">Ecolog-3</h3>
+                </div> 
+
+                <div class="box box4"> 
+                    <div class="text"> 
+                        <h2 class="topic-heading"></h2> 
+                        <h2 class="topic"></h2> 
+                    </div> 
+                    <img src="./pi4.png" alt="Dummy Image 4">
+                    &emsp;
+                    <h3 style="text-align: center; color: #fff">Ecolog-4</h3>
+                </div> 
+
+                <div class="box box5"> 
+                    <div class="text"> 
+                        <h2 class="topic-heading"></h2> 
+                        <h2 class="topic"></h2> 
+                    </div> 
+                    <img src="./pi4.png" alt="Dummy Image 5">
+                    &emsp;
+                    <h3 style="text-align: center; color: #fff">Ecolog-5</h3>
+                </div> 
+
+                <div class="box box6"> 
+                    <div class="text"> 
+                        <h2 class="topic-heading"></h2> 
+                        <h2 class="topic"></h2> 
+                    </div> 
+                    <img src="./pi4.png" alt="Dummy Image 6">
+                    &emsp;
+                    <h3 style="text-align: center; color: #fff">Ecolog-6</h3>
+                </div>
+            </div> 
+        </div> 
+    </div> 
+    <script>
+        function redirectToAnotherPage() {
+            window.location.href = '/famous/bhanja.html';
+        }
+        function logout() {
+            window.location.href = '/famous/login.html';
+        }
+    </script>
+</body> 
+</html>
