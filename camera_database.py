@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import time
+import datetime
 from azure.storage.blob import BlobServiceClient
 
 #Connection String and Container Name with the help of BlobServiceClient
@@ -12,8 +12,6 @@ blob_service_client = BlobServiceClient.from_connection_string(connection_str)
 
 #Creating a container client
 container_client = blob_service_client.get_container_client(container_name)
-
-
 
 #Open the camera
 camera = cv2.VideoCapture(0)
@@ -35,11 +33,7 @@ save_image = ((image[0] + 1) * 127.5).astype(np.uint8)
 save_path = "captured_frame.jpg"
 cv2.imwrite(save_path, save_image)
 
-#Upload the image to the azure storage
-local_file_path = "captured_frame.jpg"
-
-
-blob_name = "Forest.jpg"
+blob_name = f"Forest.jpg{datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}"
 with open(save_path, "rb") as data:
     blob_client = container_client.get_blob_client(blob_name)
     blob_client.upload_blob(data)
