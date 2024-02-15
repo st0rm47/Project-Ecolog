@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error Alert</title>
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+        }
+
+        .popup p {
+            margin-bottom: 10px;
+        }
+
+        .popup button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <h2>Error Alert</h2>
+        <p>Device ID: <span id="device-id"></span></p>
+        <p>Other device information: <span id="device-info"></span></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        // Get device ID and other device information
+        const deviceId = "ABC123";
+        const deviceInfo = "Some device info";
+
+        // Update the HTML elements with the device information
+        document.getElementById("device-id").textContent = deviceId;
+        document.getElementById("device-info").textContent = deviceInfo;
+
+        // Function to close the popup
+        function closePopup() {
+            document.querySelector(".popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
