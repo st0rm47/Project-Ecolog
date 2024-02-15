@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.center-align {
+    text-align: center;
+    color: #333;
+}
+#map {
+    height: 400px;
+    width: 100%;
+    clear: both;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative; /* Add this line */
+    z-index: 1; /* Add this line */
+}
+
+#forestData {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #010058af;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+h1
+{
+    color:#2b464a;
+}
+h2 {
+    color: #92e3ef;
+}
+p {
+    color: #92e3ef;
+}
+.box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#overlay {
+    position: fixed;
+    width: 10%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    z-index: 3; /* Set a higher value than the map's z-index */
+}
+
+#deviceDetails {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #010058af;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cad7fda4; /* This is the line that sets the background color. */
+}
+
+.sidenav {
+    position:absolute;
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 9; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #333; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+  }
+
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  /* Style page content */
+  .main {
+    margin-left: 200px; /* Same as the width of the sidebar */
+    padding: 20px;
+  }

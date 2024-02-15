@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="bhanja.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="sidenav">
+        <a href="#">Dashboard</a>
+        <a href="#">Devices</a>
+        <a href="#">Report</a>
+        <a href="#">Contact</a>
+      </div>
+
+    <header class="center-align ">
+        <h1>The detail of Ecolog1</h1>
+    </header>
+
+    <div class="center-align box" id="deviceDetails">
+        <section>
+            <p id="status">Status: Loading...</p>
+        </section>
+
+        <section>
+            <p id="time">Time: Loading...</p>
+        </section>
+
+        <section>
+            <p id="date">Date: Loading...</p>
+        </section>
+
+        <section>
+            <p id="location">Location: Loading...</p>
+        </section>
+    </div>
+
+    <section class="center-align">
+        <div id="map"></div>
+    </section>
+
+    <div id="overlay">
+    <section id="forestData">
+        <h2>Recent Forest Data</h2>
+        <p id="forestStatus">Loading...</p>
+    </section>
+    </div>
+    <script>
+        // Set device status
+        document.getElementById('status').textContent = 'Status: Active';
+
+        // Set current date and time
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('time').textContent = 'Time: ' + now.toLocaleTimeString();
+            document.getElementById('date').textContent = 'Date: ' + now.toLocaleDateString();
+        }, 1000);
+
+        // Set location and map
+        navigator.geolocation.getCurrentPosition((position) => {
+            document.getElementById('location').textContent = 'Location: ' + position.coords.latitude + ', ' + position.coords.longitude;
+            var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+
+            // Fetch forest data
+            fetch(`https://data-api.globalforestwatch.org/forest?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('forestStatus').textContent = 'Latitude: ' + position.coords.latitude + ', Longitude: ' + position.coords.longitude + '\n' + JSON.stringify(data, null, 2);
+                });
+        });
+        <a href="/" onclick="redirectToDashboard('ecolog-1')">Ecolog-1</a>
+
+
+    function redirectToDashboard(ecolog1) {
+        window.location.href = "hello.html" + ecolog1;
+    }
+</script
+
+    
+</body>
+</html>
