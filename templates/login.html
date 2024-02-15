@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | Ecolog</title>
+    <link rel="stylesheet" href="/static/css/login.css" />
+    <script src="/static/js/login.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id= "loginForm" action="/" method="post">
+        <h2>Login</h2>
+        <div class="input-field">
+          <input type="text" id="username" name="username" required />
+          <label>Username</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="password" name="password" required />
+          <label>Password</label>
+          <span class="eye-icon" onclick="togglePasswordVisibility()"
+            >&#128065;</span>
+          <div id="errorMessage" class="error-message"></div>
+        </div>
+        <div class="forget">
+          <label for="remember">
+            <input type="checkbox" id="remember" />
+            <p>Remember me</p>
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit">Log In</button>
+        <div class="register">
+          <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html> 
+
+
