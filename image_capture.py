@@ -7,6 +7,8 @@ import argparse
 import RPi.GPIO as GPIO
 from azure.storage.blob import BlobServiceClient
 
+detection_result = None
+
 def camera():
     #Set up buzzer
     GPIO.setmode(GPIO.BCM)
@@ -52,15 +54,26 @@ def camera():
     response = requests.post(prediction_endpoint, headers=headers, data=blob_client.download_blob().readall())
     if response.status_code == 200:
         predictions = response.json()['predictions']
+        detection_result = "Gunshot Detected"
         for prediction in predictions:
             if prediction ['probability'] >0.95:
                 print("Forest Fire Detected")
+                detection_result = "Forest Fire Detected"
                 GPIO.output(buzzer, GPIO.HIGH)
                 time.sleep(1)
                 GPIO.output(buzzer, GPIO.LOW)
-                break
     else:
         print("Error: ", response.status_code)
-        
+    
+    #Send image to our website
+    website_url = 'https://example.com/upload_image_endpoint'
+    files = {'Image': open(save_path, 'rb')}
+    data = {'Detection Result': detection_result}
+    response = requests.post(website_url, files=files, data=data)
+    if response.status_code == 200:
+        print("Image sent to website successfully")
+    else:
+        print("Failed to send image to website")
+    
 
     
