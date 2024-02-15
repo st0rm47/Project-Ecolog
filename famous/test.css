@@ -213,3 +213,43 @@ letter-spacing: 1px;
 font-size: 30px; 
 letter-spacing: 3px; 
 } 
+
+
+
+.option2 {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+	font-weight: bold;
+    top: 100%;
+    left: 0;
+	width:100%;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1; /* Ensure submenu appears above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease; /* Add animation for smooth appearance */
+    transform: translateY(-10px); /* Move submenu up by 10px to hide initially */
+}
+
+.option2:hover .submenu {
+    display: block;
+    transform: translateY(0); /* Move submenu back to its original position */
+}
+
+
+.submenu-option {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.submenu-option:hover {
+    background-color: #3f0097;
+	color: #fff;
+	
+}
+
