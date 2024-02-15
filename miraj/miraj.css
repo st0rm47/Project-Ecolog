@@ -4,10 +4,12 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
+
 .center-align {
     text-align: center;
     color: #333;
 }
+
 #map {
     height: 400px;
     width: 100%;
@@ -15,7 +17,10 @@ body {
     margin: 20px 0;
     border-radius: 8px;
     overflow: hidden;
+    position: relative; /* Add this line */
+    z-index: 1; /* Add this line */
 }
+
 #forestData {
     position: fixed;
     bottom: 0;
@@ -27,19 +32,17 @@ body {
     padding: 10px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure this is higher than the map's z-index */
 }
-h1, h2 {
-    color: #444;
-}
-p {
-    color: #666;
-}
-.box {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+#overlay {
+    position: fixed;
+    width: 10%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    z-index: 3; /* Set a higher value than the map's z-index */
 }
