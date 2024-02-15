@@ -25,6 +25,10 @@ DOUT_PIN= 26
 GPIO.setup(DOUT_PIN, GPIO.IN)
 
 
+#Setting up buzzer pin
+BUZZER_PIN = 21
+GPIO.setup(BUZZER_PIN, GPIO.OUT)
+
 def camera():
         #Open the camera
     camera = cv2.VideoCapture(0)
@@ -83,6 +87,13 @@ def camera():
         predictions = response.json()['predictions']
         for prediction in predictions:
             print(f"Prediction: {prediction['tagName']}, Probability: {prediction['probability']:.2f}")
+            
+            #Buzzer ON
+            GPIO.output(BUZZER_PIN, GPIO.HIGH)
+            time.sleep(1)
+            #Buzzer OFF
+            GPIO.output(BUZZER_PIN, GPIO.LOW)
+            
     else:
         print("Prediction failed")
 
