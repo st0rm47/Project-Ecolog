@@ -71,6 +71,9 @@ def trigger():
     # Render the HTML template and pass the path name of the image
     return render_template('trigger-page.html', image_path=blob_url)
 
+@app.route('/image', methods=['GET','POST'])
+def image():
+    return render_template('image.html')
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
