@@ -66,7 +66,7 @@ def live():
 def logout():
     
     session.pop('logged_in', None)
-    return redirect('/')
+    return redirect('/') 
 
 
 @app.route('/trigger', methods=['GET','POST'])
