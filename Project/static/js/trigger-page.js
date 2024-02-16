@@ -126,17 +126,19 @@
 //     window.location.href = '/templates/image.html';
 // }
 
-new Alert({
-    title: 'Alert !!',
-    text: 'Ecolog_1 got triggered. Fire Detected!',
-    icon: 'success',
-    dismissButton: false,
-    darkMode: false,
-    ConfirmButtonText: 'Go To Live Page',
-});
+
+function showPopup() {
+    var modal = document.querySelector('.nova-modal');
+    modal.style.display = 'block';
+}
 
 function accept() {
-    // Redirecting to specific path here:
-    window.location.href = '/image';
+    // Redirect to the live page
+    window.location.href = '/live';
 }
+
+document.querySelector('.dismissButton').addEventListener('click', function() {
+    var modal = document.querySelector('.nova-modal');
+    modal.style.display = 'none';
+});
 

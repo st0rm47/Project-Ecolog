@@ -41,7 +41,7 @@ def dashboard():
     latest_blob = max(blob_list, key=lambda b: b.creation_time)
     
     # Specify the new name for the file
-    new_file_name = "new_file_name.jpg"
+    new_file_name = "Forest_Fire.jpg"
     local_path = os.path.join("Project/static/images/", new_file_name)
     
     with open(local_path, "wb") as file:
