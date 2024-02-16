@@ -34,7 +34,7 @@ def camera():
     cv2.destroyAllWindows()
     
     #Send the data to Azure Storage and 
-    blob_name = f"Forest_Fire_Detected.jpg {datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}"
+    blob_name = f"Forest_Fire_Detected {datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.jpg"
     with open(save_path, "rb") as data:
         blob_client = container_client.get_blob_client(blob_name)
         blob_client.upload_blob(data)
@@ -66,7 +66,7 @@ def camera():
         print("Error: ", response.status_code)
     
     #Send image to our website
-    website_url = 'https://example.com/upload_image_endpoint'
+    website_url = 'http://127.0.0.1:5000//trigger'
     files = {'Image': open(save_path, 'rb')}
     data = {'Detection Result': detection_result}
     response = requests.post(website_url, files=files, data=data)
