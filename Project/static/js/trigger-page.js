@@ -104,23 +104,19 @@ icon = 'success';
         document.querySelector('.nova-alert .accept').onclick = accept;
 
         function accept() {
-
-
             if (input == true) {
-
-
                 var inputValue = document.querySelector('.nova-input-alert');
                 var val = inputValue.value;
                 closeNova();
                 callback(e = true, val);
-
             } else {
                 closeNova();
                 callback(e = true);
             }
             // Redirecting to specific path here:
-            window.location.href = '/templates/image.html'
+            window.location.href = '/templates/image.html';
         }
+        
 
         document.querySelector('.nova-alert .reject').onclick = reject;
         function reject() {
