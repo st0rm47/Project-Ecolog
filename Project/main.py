@@ -37,6 +37,19 @@ def dashboard():
     if request.method == 'POST' and 'button' in request.form:
         return redirect('/live')
     
+    blob_list = container_client.list_blobs()
+    latest_blob = max(blob_list, key=lambda b: b.creation_time)
+    
+    # Specify the new name for the file
+    new_file_name = "new_file_name.jpg"
+    local_path = os.path.join("Project/static/images/", new_file_name)
+    
+    with open(local_path, "wb") as file:
+        blob_client = container_client.get_blob_client(latest_blob.name)
+        blob_data = blob_client.download_blob()
+        blob_data.readinto(file)
+        
+    blob_url = f"https://{blob_service_client.account_name}.blob.core.windows.net/{container_name}/{latest_blob.name}"
     return render_template('dashboard.html', deviceharu= devices)
 
 
@@ -58,16 +71,6 @@ def logout():
 
 @app.route('/trigger', methods=['GET','POST'])
 def trigger():
-    blob_list = container_client.list_blobs()
-    latest_blob = max(blob_list, key=lambda b: b.creation_time)
-    
-    local_path = os.path.join("Project/static/images/", latest_blob.name)
-    with open(local_path, "wb") as file:
-        blob_client = container_client.get_blob_client(latest_blob.name)
-        blob_data = blob_client.download_blob()
-        blob_data.readinto(file)
-    blob_url = f"https://{blob_service_client.account_name}.blob.core.windows.net/{container_name}/{latest_blob.name}"
-
     # Render the HTML template and pass the path name of the image
     return render_template('trigger-page.html', image_path=blob_url)
 
