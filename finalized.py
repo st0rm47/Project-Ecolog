@@ -1,19 +1,19 @@
 import time
 import datetime
 import argparse
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from mediapipe.tasks import python
 from mediapipe.tasks.python.audio.core import audio_record
 from mediapipe.tasks.python.components import containers
 from mediapipe.tasks.python import audio
 from image_capture import camera
 
-# Set up buzzer
-# GPIO.setmode(GPIO.BCM)
-# DOUT_PIN = 26
-# buzzer = 23
-# GPIO.setup(buzzer, GPIO.OUT)
-# GPIO.setup(DOUT_PIN, GPIO.IN)
+#Set up buzzer
+GPIO.setmode(GPIO.BCM)
+DOUT_PIN = 26
+buzzer = 23
+GPIO.setup(buzzer, GPIO.OUT)
+GPIO.setup(DOUT_PIN, GPIO.IN)
 
 detection_result = None
 
@@ -81,17 +81,15 @@ def run(model: str, max_results: int, score_threshold: float,
             for category in classification.classifications[0].categories:
                 if category.category_name == 'Gunshot, gunfire':
                     print("Gunshot Detected")
-                    detection_result = "Gunshot Detected"
                     camera()
     
          
         #Smoke Detection
-        # digital_value = GPIO.input(DOUT_PIN) 
-        # threshold = 200
-        # if digital_value == GPIO.LOW or digital_value > threshold:
-        #     print("Smoke Detected")
-            camera()
-            print("Forest Fire Detected")      
+        digital_value = GPIO.input(DOUT_PIN) 
+        threshold = 200
+        if digital_value == GPIO.LOW or digital_value > threshold:
+            print("Smoke Detected")
+            camera()    
         else:
             print("No Smoke Detected")       
         time.sleep(1)  

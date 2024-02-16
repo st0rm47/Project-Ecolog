@@ -5,6 +5,7 @@ import datetime
 import requests
 import argparse
 import RPi.GPIO as GPIO
+import webbrowser
 from azure.storage.blob import BlobServiceClient
 
 detection_result = None
@@ -56,15 +57,22 @@ def camera():
         predictions = response.json()['predictions']
         detection_result = "Gunshot Detected"
         for prediction in predictions:
-            if prediction['probability'] > 0.95:
+            if prediction['probability'] > 0.85:
                 print("Forest Fire Detected")
-                detection_result = "Forest Fire Detected"
                 GPIO.output(buzzer, GPIO.HIGH)
                 time.sleep(1)
                 GPIO.output(buzzer, GPIO.LOW)
+                                                                                                              
+                # Send API signal to website
+                pc1_ip_address ="192.168.1.195"
+                url= f"http://{pc1_ip_address}:5000/trigger"
+
+                response = requests.get(url)
+                if response.status_code == 200:
+                    print("Request sent successfully")
+                    webbrowser.open_new_tab('http://192.168.1.195:5000/trigger')
+                else:
+                    print("Failed to send request")
+
     else:
         print("Error: ", response.status_code)
-        
-
-
-

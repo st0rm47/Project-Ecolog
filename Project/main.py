@@ -4,6 +4,17 @@ import os
 import requests
 from flask_cors import CORS
 
+def open_browser(url):
+    # Check if the OS is Windows, macOS, or Linux and open the browser accordingly
+    if os.name == 'nt':  # For Windows
+        os.system(f'start {url}')
+    elif os.name == 'posix':  # For macOS and Linux
+        os.system(f'xdg-open {url}')
+    else:
+        print("Unsupported operating system.")
+
+# Example usage
+url = "http://192.168.1.195:5000/alert"
 
 app = Flask(__name__)
 CORS(app)
@@ -63,12 +74,7 @@ def logout():
 
 @app.route('/trigger', methods=['GET','POST'])
 def trigger():
-    if 'logged_in' not in session or not session['logged_in']:
-        return redirect('/')
-
-    if request.method == 'POST' and 'button' in request.form:
-        return redirect('/trigger')
-    
+   
     blob_list = container_client.list_blobs()
     latest_blob = max(blob_list, key=lambda b: b.creation_time)
     
@@ -82,8 +88,12 @@ def trigger():
         blob_data.readinto(file)
         
     blob_url = f"https://{blob_service_client.account_name}.blob.core.windows.net/{container_name}/{latest_blob.name}"
-    return render_template('trigger-page.html', )
-    
+    open_browser(url)
+    return redirect('alert' )
+
+@app.route('/alert', methods=['GET','POST'])
+def alert():
+     return render_template('trigger-page.html' )
     
 
 @app.route('/image', methods=['GET','POST'])
@@ -93,6 +103,7 @@ def image():
     
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
+
 
 
 
