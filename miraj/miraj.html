@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/miraj/miraj.css">
+    <title>Live Feed</title>
+    <link rel="stylesheet" href="D:\Subodh\Github\Project-Ecolog\Project\static\css\live.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- <link rel="stylesheet" href="first_day.css"> -->
@@ -14,7 +14,7 @@
 	<!-- for header part -->
 	<header>
         <div class="logosec"> 
-            <div class="logo">Ecolog</div> 
+            <div class="logo"><img src="/static/logo.png" width=50px/></div><div class= "logo" style="margin: -09px -65px 0px">&ensp;Ecolog</div>
             <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" -->
                 <!-- class="nav-img"
                 alt="title"> -->
@@ -28,7 +28,7 @@
 		<div class="navcontainer"> 
 			<nav class="nav"> 
 				<div class="nav-upper-options"> 
-					<div class="nav-option option1"> 
+					<div class="nav-option option1" onclick = "dashboard()"> 
 						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
 							class="nav-img"
 							alt="dashboard">
@@ -113,12 +113,13 @@
         <section>
             <p id="location">Location: Loading...</p>
         </section>
+		<button class="btn" onclick="showOverlay()">View Recent Data</button>
     </div>
 
     <section class="center-align">
         <div id="map"></div>
     </section>
-    <script src="/static/js/live.js"></script>
+    <script src="D:\Subodh\Github\Project-Ecolog\Project\static\js\live.js"></script>
     </div> <br><br>
     <div id="overlay">
         <section id="forestData">
