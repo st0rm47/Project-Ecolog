@@ -1,1 +1,2 @@
-Detection
+
+def image():

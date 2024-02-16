@@ -217,7 +217,7 @@
     }
   }
   
-  /*---------- Cross ----------*/
+  /* ---------- Cross ----------
   .cross {
     stroke-width: 6.25;
     stroke-linecap: round;
@@ -226,15 +226,15 @@
     left: 54px;
     width: 40px;
     height: 40px;
-  }
+  } */
   
-  .cross .first-line {
+  /* .cross .first-line {
     animation: 0.7s draw-first-line ease-out;
   }
   
   .cross .second-line {
     animation: 0.7s draw-second-line ease-out;
-  }
+  } */
   
   @keyframes draw-first-line {
     0% {
