@@ -65,7 +65,6 @@ def camera():
     else:
         print("Error: ", response.status_code)
         
-    return save_path
 
 
 
