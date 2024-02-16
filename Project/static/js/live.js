@@ -26,5 +26,5 @@ navigator.geolocation.getCurrentPosition((position) => {
 });
 
 function logout() {
-    window.location.href = '/';
+    window.location.href = '/logout';
 }

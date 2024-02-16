@@ -39,16 +39,18 @@ def live():
     
     return render_template('live.html')
 
-
 # logout route
 @app.route('/logout')
 def logout():
+    
     session.pop('logged_in', None)
     return redirect('/')
 
 
 @app.route('/trigger')
 def trigger():
+    if 'logged_in' not in session or not session['logged_in']:
+        return redirect('/')
     return render_template('trigger-page.html')
 
 
