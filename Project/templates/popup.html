@@ -35,16 +35,24 @@
         <div class="popup-content">
             <h1>Popup Content</h1>
             <p>This is a popup message.</p>
+            <button onclick="openPopup()">Open Popup</button>
         </div>
     </div>
     <script>
-        // Function to show the popup
-        function showPopup() {
-            document.getElementById('popupContainer').style.display = 'block';
-        }
-        // Function to hide the popup
-        function hidePopup() {
-            document.getElementById('popupContainer').style.display = 'none';
+        function openPopup() {
+            fetch('/api/open-popup', { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('API call failed');
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         }
     </script>
 </body>
