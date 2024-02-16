@@ -31,3 +31,6 @@ function logout() {
 function dashboard() {
     window.location.href = '/dashboard';
 }
+function showOverlay(){
+    window.location.href=  '/image';
+}
