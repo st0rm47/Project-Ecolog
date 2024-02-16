@@ -18,81 +18,81 @@ font-family: "Poppins", sans-serif;
 }
 
 :root { 
---background-color1: #fafaff; 
---background-color2: #ffffff; 
---background-color3: #ededed; 
---background-color4: #cad7fda4; 
---primary-color: #4b49ac; 
---secondary-color: #0c007d; 
---Border-color: #3f0097; 
---one-use-color: #3f0097; 
---two-use-color: #5500cb; 
+    --background-color1: #fafaff; 
+    --background-color2: #ffffff; 
+    --background-color3: #ededed; 
+    --background-color4: #cad7fda4; 
+    --primary-color: #4b49ac; 
+    --secondary-color: #0c007d; 
+    --Border-color: #3f0097; 
+    --one-use-color: #3f0097; 
+    --two-use-color: #5500cb; 
 } 
 body { 
-background-color: var(--background-color4); 
-max-width: 100%; 
-overflow-x: hidden; 
+    background-color: var(--background-color4); 
+    max-width: 100%; 
+    overflow-x: hidden; 
 } 
 
 header { 
-height: 70px; 
-width: 100vw; 
-padding: 0 30px; 
-background-color: var(--background-color1); 
-position: fixed; 
-z-index: 100; 
-box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825); 
-display: flex; 
-justify-content: space-between; 
-align-items: center; 
+    height: 70px; 
+    width: 100vw; 
+    padding: 0 30px; 
+    background-color: var(--background-color1); 
+    position: fixed; 
+    z-index: 100; 
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
 } 
 
 .logo { 
-font-size: 27px; 
-font-weight: 600; 
-color: rgb(47, 141, 70); 
+    font-size: 27px; 
+    font-weight: 600; 
+    color: rgb(47, 141, 70); 
 } 
 
 .icn { 
-height: 30px; 
+    height: 30px; 
 } 
 .menuicn { 
-cursor: pointer; 
+    cursor: pointer; 
 } 
 
 .logosec { 
-display: flex; 
-align-items: center; 
-justify-content: center; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 } 
 
 
 .logosec { 
-gap: 60px; 
+    gap: 60px; 
 } 
 
 
 .message { 
-gap: 40px; 
-position: relative; 
-cursor: pointer; 
+    gap: 40px; 
+    position: relative; 
+    cursor: pointer; 
 } 
 
 .main-container { 
-display: flex; 
-width: 100vw; 
-position: relative; 
-top: 70px; 
-z-index: 1; 
+    display: flex; 
+    width: 100vw; 
+    position: relative; 
+    top: 70px; 
+    z-index: 1; 
 } 
 
 
 .main { 
-height: calc(100vh - 70px); 
-width: 100%; 
-overflow-y: scroll; 
-overflow-x: hidden; 
-padding: 40px 30px 30px 30px; 
+    height: calc(100vh - 70px); 
+    width: 100%; 
+    overflow-y: scroll; 
+    overflow-x: hidden; 
+    padding: 40px 30px 30px 30px; 
 } 
 
 .main::-webkit-scrollbar-thumb { 
@@ -100,96 +100,114 @@ background-image:
 		linear-gradient(to bottom, rgb(0, 0, 85), rgb(0, 0, 50)); 
 } 
 .main::-webkit-scrollbar { 
-width: 5px; 
+    width: 5px; 
 } 
 .main::-webkit-scrollbar-track { 
-background-color: #9e9e9eb2; 
+    background-color: #9e9e9eb2; 
 } 
 
 .box-container { 
-display: flex; 
-justify-content: space-evenly; 
-align-items: center; 
-flex-wrap: wrap; 
-gap: 2px; 
+    display: flex; 
+    justify-content: space-evenly; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 2px; 
 } 
 .nav { 
-min-height: 91vh; 
-width: 250px; 
-background-color: var(--background-color2); 
-position: absolute; 
-top: 0px; 
-left: 00; 
-box-shadow: 1px 1px 10px rgba(198, 189, 248, 0.825); 
-display: flex; 
-flex-direction: column; 
-justify-content: space-between; 
-overflow: hidden; 
-padding: 30px 0 20px 10px; 
+    min-height: 91vh; 
+    width: 250px; 
+    background-color: var(--background-color2); 
+    position: absolute; 
+    top: 0px; 
+    left: 00; 
+    box-shadow: 1px 1px 10px rgba(198, 189, 248, 0.825); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    overflow: hidden; 
+    padding: 30px 0 20px 10px; 
 } 
 .navcontainer { 
-height: calc(100vh - 70px); 
-width: 250px; 
-position: relative; 
-overflow-y: scroll; 
-overflow-x: hidden; 
-transition: all 0.5s ease-in-out; 
+    height: calc(100vh - 70px); 
+    width: 250px; 
+    position: relative; 
+    overflow-y: scroll; 
+    overflow-x: hidden; 
+    transition: all 0.5s ease-in-out; 
 } 
 .navcontainer::-webkit-scrollbar { 
-display: none; 
+    display: none; 
 } 
 .navclose { 
-width: 80px; 
+    width: 80px; 
 } 
 .nav-option { 
-width: 250px; 
-height: 60px; 
-display: flex; 
-align-items: center; 
-padding: 0 30px 0 20px; 
-gap: 20px; 
-transition: all 0.1s ease-in-out; 
+    width: 250px; 
+    height: 60px; 
+    display: flex; 
+    align-items: center; 
+    padding: 0 30px 0 20px; 
+    gap: 20px; 
+    transition: all 0.1s ease-in-out; 
 } 
-.nav-option:hover { 
-border-left: 5px solid #a2a2a2; 
-background-color: #dadada; 
-cursor: pointer; 
-} 
+/* .nav-option:hover { 
+    border-left: 5px solid #a2a2a2; 
+    background-color: #dadada; 
+    cursor: pointer; 
+}  */
 .nav-img { 
-height: 30px; 
+    height: 30px; 
 } 
 
 .nav-upper-options { 
-display: flex; 
-flex-direction: column; 
-align-items: center; 
-gap: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 30px; 
 } 
+.option2 { 
+    border-left: 5px solid #010058af; 
+    background-color: var(--Border-color); 
+    color: white; 
+    cursor: pointer; 
+    } 
 
-.option1 { 
-border-left: 5px solid #010058af; 
-background-color: var(--Border-color); 
-color: white; 
-cursor: pointer; 
-} 
-.option1:hover { 
-border-left: 5px solid #010058af; 
-background-color: var(--Border-color); 
-} 
+.nav-option.option1:hover,
+.nav-option.option2:hover,
+.nav-option.option3:hover,
+.nav-option.option4:hover,
+.nav-option.logout:hover
+{ 
+    border-left: 5px solid #010058af; 
+    background-color: var(--Border-color); 
+    color: black; 
+    cursor: pointer; 
+}
+
+.nav-option.option1:onclick,
+.nav-option.option2:onclick,
+.nav-option.option3:onclick,
+.nav-option.option4:onclick{ 
+    border-left: 5px solid #010058af; 
+    background-color: #4b49ac; 
+    color: #fff; 
+    cursor: pointer; 
+}
+
 
 .box { 
-background-color: #4b49ac;
-color: #fff;
-height: 150px;
-width: 320px; 
-border-radius: 20px; 
-box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751); 
-padding: 20px; 
-display: block; 
-align-items: left; 
-/* justify-content: space-around;  */
-cursor: pointer; 
-transition: transform 0.3s ease-in-out; 
+    background-color: #4b49ac;
+    color: #fff;
+    height: 150px;
+    width: 320px; 
+    border-radius: 20px; 
+    box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751); 
+    padding: 20px; 
+    display: block; 
+    align-items: left; 
+    /* justify-content: space-around;  */
+    cursor: pointer; 
+    transition: transform 0.3s ease-in-out; 
 } 
 /* .box:hover { 
 transform: scale(1.08); 
