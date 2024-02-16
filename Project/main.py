@@ -1,8 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from image_capture import camera
+from azure.storage.blob import BlobServiceClient
 
 app = Flask(__name__)
 app.secret_key = '#412saqwerT'  # Replace with a secret key for session encryption
+
+# Azure Storage
+connection_str = "DefaultEndpointsProtocol=https;AccountName=ecologstorage;AccountKey=GcQyJX5gaXrgMV4zaIeIWGuuoubKuRp2E7vMmQl4kFP5qnyun1MfikOMVlclmICiaJK4r5+NdGe6+AStz89CFQ==;EndpointSuffix=core.windows.net"
+container_name = "images"
+blob_service_client = BlobServiceClient.from_connection_string(connection_str)
+container_client = blob_service_client.get_container_client(container_name)
+
 
 # login page route
 @app.route('/', methods=['GET', 'POST'])
@@ -50,10 +57,12 @@ def logout():
 
 @app.route('/trigger', methods=['GET','POST'])
 def trigger():
-    save_path = camera()
+    blob_list = container_client.list_blobs()
+    latest_blob = max(blob_list, key=lambda b: b.creation_time)
+    blob_url = f"https://{blob_service_client.account_name}.blob.core.windows.net/{container_name}/{latest_blob.name}"
 
     # Render the HTML template and pass the path name of the image
-    return render_template('trigger-page.html', image_path=save_path)
+    return render_template('trigger-page.html', image_path=blob_url)
 
 
 if __name__ == "__main__":
