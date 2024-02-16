@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from azure.storage.blob import BlobServiceClient
+import os
 
 app = Flask(__name__)
 app.secret_key = '#412saqwerT'  # Replace with a secret key for session encryption
@@ -59,6 +60,12 @@ def logout():
 def trigger():
     blob_list = container_client.list_blobs()
     latest_blob = max(blob_list, key=lambda b: b.creation_time)
+    
+    local_path = os.path.join("Project/static/images/", latest_blob.name)
+    with open(local_path, "wb") as file:
+        blob_client = container_client.get_blob_client(latest_blob.name)
+        blob_data = blob_client.download_blob()
+        blob_data.readinto(file)
     blob_url = f"https://{blob_service_client.account_name}.blob.core.windows.net/{container_name}/{latest_blob.name}"
 
     # Render the HTML template and pass the path name of the image
