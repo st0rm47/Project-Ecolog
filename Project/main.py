@@ -72,7 +72,7 @@ def logout():
 @app.route('/trigger', methods=['GET','POST'])
 def trigger():
     # Render the HTML template and pass the path name of the image
-    return render_template('trigger-page.html', image_path=blob_url)
+    return render_template('trigger-page.html')
 
 @app.route('/image', methods=['GET','POST'])
 def image():
