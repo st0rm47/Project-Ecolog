@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Detection</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        img {
+            max-width: 100%;
+            max-height: 80vh;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="" alt="Detected Image">
+        <h1 id="detection"></h1>
+    </div>
+    <script>
+        const imageElement = document.getElementById('image');
+        const detectionElement = document.getElementById('detection');
+
+        // Set the image source and detection result from Flask variables
+        imageElement.src = "{{ image_src }}";
+        detectionElement.textContent = "{{ detection_result }}";
+    </script>
+</body>
+</html>

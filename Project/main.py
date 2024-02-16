@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from image_capture import camera
 
 app = Flask(__name__)
 app.secret_key = '#412saqwerT'  # Replace with a secret key for session encryption
@@ -47,12 +48,18 @@ def logout():
     return redirect('/')
 
 
-@app.route('/trigger')
+@app.route('/trigger', methods=['GET','POST'])
 def trigger():
-    if 'logged_in' not in session or not session['logged_in']:
-        return redirect('/')
-    return render_template('trigger-page.html')
+    save_path = camera()
+
+    # Render the HTML template and pass the path name of the image
+    return render_template('trigger-page.html', image_path=save_path)
 
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
+
+
+
+
