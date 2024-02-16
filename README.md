@@ -29,4 +29,4 @@ Designed to be scalable to accommodate various forest sizes and topographies.
 Allows customization based on specific forest management needs and requirements.
 ## Installation
 ### Clone the repository:
-> https://github.com/st0rm47/Project-Ecolog.git
+```https://github.com/st0rm47/Project-Ecolog.git```
