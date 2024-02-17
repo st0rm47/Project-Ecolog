@@ -20,13 +20,11 @@ app = Flask(__name__)
 CORS(app)
 app.secret_key = '#412saqwerT'  # Replace with a secret key for session encryption
 
-    
 # Azure Storage
 connection_str = "DefaultEndpointsProtocol=https;AccountName=ecologstorage;AccountKey=GcQyJX5gaXrgMV4zaIeIWGuuoubKuRp2E7vMmQl4kFP5qnyun1MfikOMVlclmICiaJK4r5+NdGe6+AStz89CFQ==;EndpointSuffix=core.windows.net"
 container_name = "images"
 blob_service_client = BlobServiceClient.from_connection_string(connection_str)
 container_client = blob_service_client.get_container_client(container_name)
-
 
 # login page route
 @app.route('/', methods=['GET', 'POST'])
@@ -42,7 +40,6 @@ def login():
     else:
         return render_template('login.html')
 
-
 # dashboard route
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
@@ -54,7 +51,6 @@ def dashboard():
         return redirect('/live')
     
     return render_template('dashboard.html', devices=devices)
-
 
 # live route
 @app.route('/live', methods=['GET', 'POST'])
@@ -70,7 +66,6 @@ def logout():
     
     session.pop('logged_in', None)
     return redirect('/')
-
 
 @app.route('/trigger', methods=['GET','POST'])
 def trigger():
@@ -99,12 +94,9 @@ def alert():
 @app.route('/image', methods=['GET','POST'])
 def image():
     return render_template('image.html')
-   
     
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
-
-
 
 
 
