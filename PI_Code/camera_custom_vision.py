@@ -1,8 +1,3 @@
-#--->
-#This part of the code sends the camera feed to the Azure Custom Vision API for classification
-#<---
-
-
 import cv2
 import numpy as np
 import datetime

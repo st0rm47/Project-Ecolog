@@ -8,7 +8,7 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python.audio.core import audio_record
 from mediapipe.tasks.python.components import containers
 from mediapipe.tasks.python import audio
-from image_capture import camera
+from PI_Code.image_capture import camera
 
 #Set up buzzer
 GPIO.setmode(GPIO.BCM)
