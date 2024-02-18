@@ -13,8 +13,16 @@ Project Ecolog is a Raspberry Pi-based environmental monitoring system that uses
 
 ## Setup
 
-1. Clone the repository: ```git clone https://github.com/st0rm47/Project-Ecolog.git```
-2. Install dependencies: `pip install -r requirements.txt`
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/st0rm47/Project-Ecolog.git
+
+2. **Install dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+
 3. Configure Azure Storage connection string and container name in `camera.py` and `main.py`.
 4. Configure Custom Vision API endpoint and prediction key in `camera.py` and `main.py`.
 5. Set up GPIO pins for buzzer and smoke sensor according to your hardware setup.
@@ -26,7 +34,10 @@ Project Ecolog is a Raspberry Pi-based environmental monitoring system that uses
 
 ## Contributors
 
-- [Your Name](https://github.com/st0rm47)
+- [Subodh Ghimire](https://github.com/st0rm47)
+- [Firoj Paudel](https://github.com/firojpaudel)
+- [Miraj Bhattarai](https://github.com/mirajb1)
+- [Famous Dhungana](https://github.com/prasiddha98)
 
 ## License
 
