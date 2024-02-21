@@ -181,6 +181,7 @@ background-color: var(--Border-color);
 .nav-option.option2:hover,
 .nav-option.option3:hover,
 .nav-option.option4:hover,
+.nav-option.option6:hover,
 .nav-option.logout:hover
 { 
     border-left: 5px solid #000; 
