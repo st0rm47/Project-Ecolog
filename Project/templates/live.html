@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="\static\css\live.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <!-- <link rel="stylesheet" href="first_day.css"> -->
-    <!-- <script src="/famous/dashboard.js"></script> -->
 </head>
 <body>
 	<header> 
@@ -24,7 +22,7 @@
         <div class="navcontainer"> 
             <nav class="nav"> 
                 <div class="nav-upper-options"> 
-                    <div class="nav-option option1"> 
+                    <div class="nav-option option1" onclick="dashboard()"> 
                         <img src="https://i.postimg.cc/N0LM4h5T/Home.png"
                             class="nav-img"
                             alt="dashboard"> 
@@ -93,19 +91,19 @@
     <div class="box-container">     
     <div class="center-align box" id="deviceDetails">
         <section>
-            <p id="status">Status: Loading...</p>
+            <p id="status" style="color: #000; font-weight: bold">Status: Loading...</p>
         </section>
 
         <section>
-            <p id="time">Time: Loading...</p>
+            <p id="time" style="color: #000; font-weight: bold">Time: Loading...</p>
         </section>
 
         <section>
-            <p id="date">Date: Loading...</p>
+            <p id="date" style="color: #000; font-weight: bold">Date: Loading...</p>
         </section>
 
         <section>
-            <p id="location">Location: Loading...</p>
+            <p id="location" style="color: #000">Location: Loading...</p>
         </section>
 		<button class="btn" onclick="showOverlay()">View Recent Data</button>
     </div>

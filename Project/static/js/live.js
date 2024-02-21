@@ -24,7 +24,6 @@ navigator.geolocation.getCurrentPosition((position) => {
             document.getElementById('forestStatus').textContent = 'Latitude: ' + position.coords.latitude + ', Longitude: ' + position.coords.longitude + '\n' + JSON.stringify(data, null, 2);
         });
 });
-
 function logout() {
     window.location.href = '/logout';
 }

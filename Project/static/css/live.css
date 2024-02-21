@@ -223,7 +223,7 @@ background-image:
     transition: transform 0.3s ease-in-out; 
 } 
 .btn{
-    background-color: #4b49ac;
+    background-color: #868A8B;
     color: #fff;
     font-weight: 600;
     border-width: 1px;
@@ -238,7 +238,7 @@ background-image:
   }
   
  .btn:hover {
-    color: #17293a;
+    color: #000;
     border-color: #fff;
     background: rgba(255, 255, 255, 0.15);
   }
@@ -260,7 +260,7 @@ background-image:
 
 .btn {
     margin-top: 20px;
-    background-color: #4b49ac;
+    background-color: #868A8B;
     color: #fff;
     height: 50px;
     width: 200px;
