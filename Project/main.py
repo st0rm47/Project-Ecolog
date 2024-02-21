@@ -14,7 +14,7 @@ def open_browser(url):
         print("Unsupported operating system.")
 
 # Example usage
-url = "http://192.168.1.195:5000/alert"
+url = "http://192.168.1.136:5000/alert"
 
 app = Flask(__name__)
 CORS(app)
