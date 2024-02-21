@@ -16,15 +16,15 @@ font-family: "Poppins", sans-serif;
 }
 
 :root { 
---background-color1: #fafaff; 
---background-color2: #ffffff; 
+--background-color1: #394447; 
+--background-color2: #4C5A5F; 
 --background-color3: #ededed; 
---background-color4: #cad7fda4; 
+--background-color4: #bee1ee; 
 --primary-color: #4b49ac; 
 --secondary-color: #0c007d; 
---Border-color: #3f0097; 
---one-use-color: #3f0097; 
---two-use-color: #5500cb; 
+--Border-color: #A5BAC2;
+--one-use-color: #A5BAC2; 
+--two-use-color: #99A7AC; 
 } 
 body { 
 background-color: var(--background-color4); 
@@ -39,7 +39,7 @@ padding: 0 30px;
 background-color: var(--background-color1); 
 position: fixed; 
 z-index: 100; 
-box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825); 
+box-shadow: 1px 1px 15px rgb(10, 11, 12);
 display: flex; 
 justify-content: space-between; 
 align-items: center; 
@@ -165,11 +165,14 @@ gap: 30px;
 } 
 
 .option1 { 
-border-left: 5px solid #010058af; 
+border-left: 5px solid #000; 
 background-color: var(--Border-color); 
 color: white; 
 cursor: pointer; 
 } 
+.option2, .option3, .option4, .option6, .logout {
+    color: white;
+}
 /* .option1:hover { 
 border-left: 5px solid #010058af; 
 background-color: var(--Border-color); 
@@ -180,9 +183,9 @@ background-color: var(--Border-color);
 .nav-option.option4:hover,
 .nav-option.logout:hover
 { 
-    border-left: 5px solid #010058af; 
+    border-left: 5px solid #000; 
     background-color: var(--Border-color); 
-    color: black; 
+    color: grey; 
     cursor: pointer; 
 }
 .box { 
@@ -313,7 +316,7 @@ letter-spacing: 3px;
 
 .submenu-option:hover {
     border-left: 5px solid #010058af; 
-    background-color: #3f0097;
+    background-color: #3a6b93;
 	color: #fff;
 	
 }
