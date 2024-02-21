@@ -11,83 +11,77 @@
     <!-- <script src="/famous/dashboard.js"></script> -->
 </head>
 <body>
-	<!-- for header part -->
-	<header>
+	<header> 
         <div class="logosec"> 
-            <div class="logo"><img src="/static/logo.png" width=50px/></div><div class= "logo" style="margin: -09px -65px 0px">&ensp;Ecolog</div>
-            <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" -->
-                <!-- class="nav-img"
-                alt="title"> -->
+            <div class="logo"><img src="/static/logo.png" width=50px/></div><div class= "logo" style="margin: -09px -65px 0px">&ensp;Ecolog</div> 
         </div> 
         <div class="user-icon">
             <img src="/static/ranger.png" alt="User Icon">
         </div>
-	</header> 
+    </header> 
 
-	<div class="main-container"> 
-		<div class="navcontainer"> 
-			<nav class="nav"> 
-				<div class="nav-upper-options"> 
-					<div class="nav-option option1" onclick = "dashboard()"> 
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-							class="nav-img"
-							alt="dashboard">
-						<h3> Dashboard</h3> 
-					</div> 
+    <div class="main-container"> 
+        <div class="navcontainer"> 
+            <nav class="nav"> 
+                <div class="nav-upper-options"> 
+                    <div class="nav-option option1"> 
+                        <img src="https://i.postimg.cc/N0LM4h5T/Home.png"
+                            class="nav-img"
+                            alt="dashboard"> 
+                        <h3> Dashboard</h3> 
+                    </div> 
 
-					<div class="nav-option option2">
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img" alt="articles">
-						<h3> Devices</h3>
-						<div class="submenu">
-							<div class="submenu-option">Ecolog 1</div>
-							<div class="submenu-option">Ecolog 2</div>
-                            <div class="submenu-option">Ecolog 3</div>
-							<div class="submenu-option">Ecolog 4</div>
-                            <div class="submenu-option">Ecolog 5</div>
-							<div class="submenu-option">Ecolog 6</div>
-						</div>
-					</div>
-					
+                    <div class="nav-option option2">
+                        <img src="https://i.postimg.cc/grFwrgD5/Devices.png" class="nav-img" alt="articles">
+                        <h3> Devices</h3>
+                        <div class="submenu">
+                            <div class="submenu-option" onclick="redirectToAnotherPage()">Ecolog 1</div>
+                            <div class="submenu-option" >Ecolog 2</div>
+                            <div class="submenu-option" >Ecolog 3</div>
+                            <div class="submenu-option" >Ecolog 4</div>
+                            <div class="submenu-option" >Ecolog 5</div>
+                            <div class="submenu-option" >Ecolog 6</div>
+                        </div>
+                    </div>
 
-					<div class="nav-option option3"> 
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
-							class="nav-img"
-							alt="report"> 
-						<h3> Report</h3> 
-					</div> 
-
-					
-					<div class="nav-option option4"> 
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-							class="nav-img"
-							alt="settings"> 
-						<h3> Settings</h3> 
-					</div> 
-                    <div class="nav-option option6"> 
-						<!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-							class="nav-img"
-							alt="settings">  -->
-						<h3> </h3> 
-					</div> 
+                    <div class="nav-option option3"> 
+                        <img src="https://i.postimg.cc/WbFfBJjD/Report-icon.png"
+                            class="nav-img"
+                            alt="report"> 
+                        <h3> Report</h3> 
+                    </div> 
 
                     <div class="nav-option option6"> 
-						<!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-							class="nav-img"
-							alt="settings">  -->
-						<h3> </h3> 
-					</div> 
+                        <img src="https://i.postimg.cc/g0Lzhz6X/Report-icon-1.png"
+                            class="nav-img"
+                            alt="settings"> 
+                        <h3> Settings</h3> 
+                    </div> 
+                    <div class="nav-option option7"> 
+                        <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                            class="nav-img"
+                            alt="settings">  -->
+                        <h3> </h3> 
+                    </div> 
+
+                    <div class="nav-option option8"> 
+                        <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                            class="nav-img"
+                            alt="settings">  -->
+                        <h3> </h3> 
+                    </div> 
 
 
-					<div class="nav-option logout" onclick = "logout()" > 
-						<img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
-							class="nav-img"
-							alt="logout"> 
-						<h3>Logout</h3> 
-					</div> 
+                    <div class="nav-option logout" onclick = "logout()"> 
+                        <img src="https://i.postimg.cc/Dy86VRVf/logout-1.png"
+                            class="nav-img"
+                            alt="logout"> 
+                        <h3>Logout</h3> 
+                    </div> 
 
-				</div> 
-			</nav> 
-		</div> 
+                </div> 
+            </nav> 
+        </div>
 <style>
     .box {
         background-size: cover;
@@ -121,12 +115,7 @@
     </section>
     <script src="\static\js\live.js"></script>
     </div> <br><br>
-    <div id="overlay">
-        <section id="forestData">
-            <h2>Recent Forest Data</h2>
-            <p id="forestStatus">Loading...</p>
-        </section>
-    </div>
+
 </div>
 </body> 
 </html>

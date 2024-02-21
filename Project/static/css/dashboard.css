@@ -167,7 +167,7 @@ gap: 30px;
 .option1 { 
 border-left: 5px solid #000; 
 background-color: var(--Border-color); 
-color: white; 
+color: black; 
 cursor: pointer; 
 } 
 .option2, .option3, .option4, .option6, .logout {

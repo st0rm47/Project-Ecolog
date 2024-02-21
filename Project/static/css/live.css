@@ -18,16 +18,16 @@ font-family: "Poppins", sans-serif;
 }
 
 :root { 
-    --background-color1: #fafaff; 
-    --background-color2: #ffffff; 
+    --background-color1: #394447; 
+    --background-color2: #4C5A5F; 
     --background-color3: #ededed; 
-    --background-color4: #cad7fda4; 
+    --background-color4: #bee1ee; 
     --primary-color: #4b49ac; 
     --secondary-color: #0c007d; 
-    --Border-color: #3f0097; 
-    --one-use-color: #3f0097; 
-    --two-use-color: #5500cb; 
-} 
+    --Border-color: #A5BAC2;
+    --one-use-color: #A5BAC2; 
+    --two-use-color: #99A7AC; 
+    } 
 body { 
     background-color: var(--background-color4); 
     max-width: 100%; 
@@ -41,7 +41,7 @@ header {
     background-color: var(--background-color1); 
     position: fixed; 
     z-index: 100; 
-    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825); 
+    box-shadow: 1px 1px 15px rgb(10, 11, 12);
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
@@ -166,21 +166,28 @@ background-image:
     gap: 30px; 
 } 
 .option2 { 
-    border-left: 5px solid #010058af; 
+    border-left: 5px solid #000; 
     background-color: var(--Border-color); 
-    color: white; 
+    color: black; 
     cursor: pointer; 
     } 
-
+.option1, 
+.option3, 
+.option4, 
+.option6, 
+.logout {
+        color: white;
+    }
 .nav-option.option1:hover,
 .nav-option.option2:hover,
 .nav-option.option3:hover,
 .nav-option.option4:hover,
+.nav-option.option6:hover,
 .nav-option.logout:hover
 { 
-    border-left: 5px solid #010058af; 
+    border-left: 5px solid #000; 
     background-color: var(--Border-color); 
-    color: black; 
+    color: grey; 
     cursor: pointer; 
 }
 
@@ -196,7 +203,7 @@ background-image:
 
 
 .box { 
-    background-color: #4b49ac;
+    background-color: var(--one-use-color); 
     color: #fff;
     height: 250px;
     width: 250px; 
@@ -347,7 +354,8 @@ letter-spacing: 3px;
 }
 
 .submenu-option:hover {
-    background-color: #3f0097;
+    border-left: 5px solid #010058af; 
+    background-color: #3a6b93;
 	color: #fff;
 	
 }
