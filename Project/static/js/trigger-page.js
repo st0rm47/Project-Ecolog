@@ -134,7 +134,7 @@ function showPopup() {
 
 function accept() {
     // Redirect to the live page
-    window.location.href = '/live';
+    window.location.href = 'http://127.0.0.1:5000/live';
 }
 
 document.querySelector('.dismissButton').addEventListener('click', function() {

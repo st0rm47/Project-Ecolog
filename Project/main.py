@@ -14,8 +14,7 @@ def open_browser(url):
         print("Unsupported operating system.")
 
 # Example usage
-url = "http://10.0.6.201:5000/alert"
-
+url = "http://192.168.101.4:5000/alert"
 app = Flask(__name__)
 CORS(app)
 app.secret_key = '#412saqwerT'  # Replace with a secret key for session encryption
@@ -96,7 +95,7 @@ def image():
     return render_template('image.html')
     
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000, ssl_context=("Project\cert.pem", "Project\key.pem"))
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
 
 
